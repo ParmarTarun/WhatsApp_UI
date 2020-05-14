@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Screens/Home.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,18 +11,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xFF075E54),
+      ),
       home: Home(),
     );
   }
 }
 
-class Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child:Text("Whats App UI", style: TextStyle(fontSize:32.0),)
-      ),
-    );
-  }
-}
