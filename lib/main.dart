@@ -12,10 +12,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFF075E54),
-      ),
+          primaryColor: Color(0xFF075E54),
+          
+          textTheme: TextTheme(
+            title: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+          )),
       home: Home(),
     );
   }
 }
-

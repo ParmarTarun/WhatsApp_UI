@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/Widgets/ChatsTab.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -56,17 +57,29 @@ class _HomeState extends State<Home> {
                 ],
           bottom: TabBar(indicatorColor: Colors.white, tabs: [
             Tab(child: Icon(Icons.camera_alt)),
-            Tab(child: Text("Chats")),
-            Tab(child: Text("Status")),
-            Tab(child: Text("Calls")),
+            Tab(child: Text("CHATS")),
+            Tab(child: Text("STATUS")),
+            Tab(child: Text("CALLS")),
           ]),
         ),
         body: TabBarView(children: [
           Center(child: Text("Open Camera")),
-          Center(child: Text("Chats")),
+          ChatsTab(),
           Center(child: Text("Status")),
           Center(child: Text("Calls")),
         ]),
+        floatingActionButton: Container(
+          padding: EdgeInsets.all(8.0),
+            decoration:
+                BoxDecoration(
+                  shape: BoxShape.circle, color: Color(0xFF25D366)),
+            child: IconButton(
+                icon: Icon(
+                  Icons.chat,
+                  color: Colors.white,
+                  size: 32.0,
+                ),
+                onPressed: () {})),
       ),
     );
   }
