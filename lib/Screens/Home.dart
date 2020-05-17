@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/Widgets/CallsTab.dart';
 
 import 'package:whatsapp_ui/Widgets/ChatsTab.dart';
 import 'package:whatsapp_ui/Widgets/HomeAppBar.dart';
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
               Center(child: Text("Open Camera")),
               ChatsTab(),
               Statustab(),
-              Center(child: Text("Calls")),
+              CallsTab(),
             ])),
       ),
       floatingActionButton: Container(
