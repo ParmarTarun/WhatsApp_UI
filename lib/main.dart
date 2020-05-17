@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xFF075E54),
           accentColor: Color(0xFF25D366),
           textTheme: TextTheme(
-            title: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+            title: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.0),
+            subtitle: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0, color: Colors.grey),
           )),
       home: Home(),
     );

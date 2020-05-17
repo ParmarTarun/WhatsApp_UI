@@ -25,6 +25,7 @@ class ChatsTab extends StatelessWidget {
               ),
               subtitle: Text(
                 chat.text,
+                style: Theme.of(context).textTheme.subtitle,
                 maxLines: 1,
               ),
               trailing: Column(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:whatsapp_ui/Widgets/ChatsTab.dart';
 import 'package:whatsapp_ui/Widgets/HomeAppBar.dart';
+import 'package:whatsapp_ui/Widgets/StatusTab.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
             body: TabBarView(children: [
               Center(child: Text("Open Camera")),
               ChatsTab(),
-              Center(child: Text("Status")),
+              Statustab(),
               Center(child: Text("Calls")),
             ])),
       ),
