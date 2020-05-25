@@ -10,7 +10,7 @@ class ChatsTab extends StatelessWidget {
     return MediaQuery.removePadding(
       context: context,
       removeTop: true,
-      child: ListView.builder(
+      child: ListView.separated(
           itemCount: chats.length,
           itemBuilder: (BuildContext context, index) {
             Message chat = chats[index];
@@ -45,8 +45,14 @@ class ChatsTab extends StatelessWidget {
                       : SizedBox()
                 ],
               ),
+              
             );
-          }),
+            
+          }, separatorBuilder: (BuildContext context, index)=>Divider(
+            height: 0,
+            indent: 80.0,
+            endIndent: 12.0,
+          ),),
     );
   }
 }

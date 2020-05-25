@@ -9,7 +9,7 @@ class CallsTab extends StatelessWidget {
     return MediaQuery.removePadding(
         removeTop: true,
         context: context,
-        child: ListView.builder(
+        child: ListView.separated(
             itemCount: calls.length,
             itemBuilder: (BuildContext context, index) {
               Call call = calls[index];
@@ -43,6 +43,10 @@ class CallsTab extends StatelessWidget {
                   onPressed: () {},
                 ),
               );
-            }));
+            },separatorBuilder: (BuildContext context, index)=>Divider(
+            height: 0,
+            indent: 80.0,
+            endIndent: 12.0,
+          ),));
   }
 }

@@ -5,34 +5,69 @@ import 'package:whatsapp_ui/Widgets/ChatsTab.dart';
 import 'package:whatsapp_ui/Widgets/HomeAppBar.dart';
 import 'package:whatsapp_ui/Widgets/StatusTab.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  TabController tabController;
+
+  List<IconData> _fabsIcon = [Icons.chat, Icons.camera_alt, Icons.add_call];
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 4, vsync: this, initialIndex: 1);
+    tabController.addListener(handleChange);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+  void handleChange() {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: DefaultTabController(
-        initialIndex: 1, //  for chat tab
-        length: 4,
-        child: NestedScrollView(
+        body: NestedScrollView(
             headerSliverBuilder: (BuildContext context, bool isScrolled) =>
-                [HomeAppBar()],
-            body: TabBarView(children: [
+                [HomeAppBar(tabController: tabController)],
+            body: TabBarView(controller: tabController, children: [
               Center(child: Text("Open Camera")),
               ChatsTab(),
               Statustab(),
               CallsTab(),
             ])),
-      ),
-      floatingActionButton: Container(
-          padding: EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: Theme.of(context).accentColor),
-          child: IconButton(
-              icon: Icon(
-                Icons.chat,
-                color: Colors.white,
-                size: 32.0,
-              ),
-              onPressed: () {})),
-    );
+        floatingActionButton: tabController.index == 0
+            ? null
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  tabController.index == 2
+                      ? FloatingActionButton(
+                          backgroundColor: Colors.white70,
+                          child: Icon(
+                            Icons.edit,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          onPressed: () {})
+                      : SizedBox(),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  FloatingActionButton(
+                      child: Icon(
+                        _fabsIcon[tabController.index - 1],
+                        color: Colors.white,
+                      ),
+                      onPressed: () {}),
+                ],
+              ));
   }
 }
