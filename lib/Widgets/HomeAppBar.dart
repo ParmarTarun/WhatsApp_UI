@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatefulWidget {
-  TabController tabController;
+  final TabController tabController;
 
   HomeAppBar({this.tabController});
 

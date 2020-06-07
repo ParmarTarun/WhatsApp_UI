@@ -51,6 +51,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 children: <Widget>[
                   tabController.index == 2
                       ? FloatingActionButton(
+                        heroTag: 1,
                           backgroundColor: Colors.white70,
                           child: Icon(
                             Icons.edit,
@@ -62,6 +63,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     height: 10.0,
                   ),
                   FloatingActionButton(
+                    heroTag: 2,
                       child: Icon(
                         _fabsIcon[tabController.index - 1],
                         color: Colors.white,

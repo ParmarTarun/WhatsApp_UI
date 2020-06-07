@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/Models/status.dart';
 import 'package:whatsapp_ui/Models/user.dart';
+import 'package:whatsapp_ui/Screens/StatusScreen.dart';
 
 class Statustab extends StatelessWidget {
   final List statuses = Status.statuses;
@@ -32,9 +33,9 @@ class Statustab extends StatelessWidget {
                 ),
               ]),
               title:
-                  Text("My Status", style: Theme.of(context).textTheme.title),
+                  Text("My Status", style: Theme.of(context).textTheme.headline6),
               subtitle: Text("Tap to add status update",
-                  style: Theme.of(context).textTheme.subtitle),
+                  style: Theme.of(context).textTheme.subtitle2),
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 12.0),
@@ -64,13 +65,19 @@ class Statustab extends StatelessWidget {
                       ),
                       CircleAvatar(
                         radius: 24.0,
-                        backgroundImage: AssetImage(status.pictures[0]),
+                        backgroundImage: AssetImage(status.post[0]["path"]),
                       ),
                     ]),
                     title: Text(status.user.name,
-                        style: Theme.of(context).textTheme.title),
+                        style: Theme.of(context).textTheme.headline6),
                     subtitle: Text(status.time,
-                        style: Theme.of(context).textTheme.subtitle),
+                        style: Theme.of(context).textTheme.subtitle2),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StatusScreen()));
+                    },
                   );
                 },
                 separatorBuilder: (BuildContext context, index) => Divider(
