@@ -17,7 +17,11 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             headline6: TextStyle(fontWeight: FontWeight.w400, fontSize: 20.0),
             subtitle2: TextStyle(fontWeight: FontWeight.w500, fontSize: 16.0, color: Colors.grey),
-          )),
+          ),
+          bottomSheetTheme: BottomSheetThemeData(
+            backgroundColor: Colors.transparent
+          )
+          ),
       home: Home(),
     );
   }

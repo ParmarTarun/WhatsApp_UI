@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/Models/status.dart';
+import 'package:whatsapp_ui/Widgets/ReplyBox.dart';
 
 class StatusScreen extends StatelessWidget {
   final Status status;
@@ -78,8 +79,14 @@ class StatusScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                onTap: (){
-                  showModalBottomSheet(context: context, builder: (context)=>Container());
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) => ReplyBox(
+                      status: status,
+                    ),
+                    isScrollControlled: true
+                  );
                 },
               )
             ],
